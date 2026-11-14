@@ -62,4 +62,19 @@
 <div id="login"><div class="p"><h2 style="color:#0288D1;text-align:center">Create Your Account</h2><p style="text-align:center;font-size:13px;color:#888">Chat • Market • Selling in Mumias</p>
 <input id="n" placeholder="Your Full Name"><input id="ph" placeholder="Your Phone e.g. 0701862791"><input id="e" placeholder="Email"><input id="pw" type="password" placeholder="Password">
 <a class="btn" href="#contacts" onclick="go()">CREATE ACCOUNT ➜ NEXT</a>
-<a class="btn2"
+<a class="btn2" href="#contacts">Continue as Guest</a></div></div>
+<div style="background:#0288D1;color:#fff;text-align:center;padding:12px;font-size:12px"><b style="color:#00E676">JIMZAZ</b> © 2026 Mumias • WhatsApp 0701862791</div>
+</div>
+<script>
+var P=[
+{n:"Maize - Mumias",p:2500,d:"Fresh 1 Bag",i:"https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=600",sn:"Mary Achieng",sp:"0722123456",si:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"},
+{n:"Samsung Phone",p:8500,d:"Clean, charger",i:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600",sn:"Kevin Barasa",sp:"0711223344",si:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"},
+{n:"School Shoes",p:1200,d:"Strong all sizes",i:"https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600",sn:"Faith Nekesa",sp:"0733445566",si:"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200"}
+];
+function go(){ try{ var n=document.getElementById('n').value; var ph=document.getElementById('ph').value; if(n) document.getElementById('myName').innerText=n; if(ph) document.getElementById('myPhone').innerText=ph; }catch(e){} show(); }
+function show(){ var h=""; for(var i=0;i<P.length;i++){ h+='<div class="card"><img src="'+P[i].i+'"><div><b>'+P[i].n+'</b><p>'+P[i].d+'</p><b style="color:#0288D1">KSh '+P[i].p+'</b><div class="seller"><img src="'+P[i].si+'"><div><b>👤 Seller: '+P[i].sn+'</b><br><span>📞 '+P[i].sp+'</span></div></div><a class="btn" href="#chat">Chat '+P[i].sn+' 💬</a><br><a class="btn2" href="https://wa.me/254'+P[i].sp.slice(1)+'">Call / WhatsApp '+P[i].sn+'</a></div></div>'; } document.getElementById('pro').innerHTML=h; }
+function addContact(){ var n=document.getElementById('cn').value; var p=document.getElementById('cp').value; if(!n||!p){alert('Add Name + Number');return;} var d=document.createElement('a'); d.className='ct'; d.href='#chat'; d.innerHTML='<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"><div><b>'+n+'</b><br><span>📞 '+p+'</span></div><span style="margin-left:auto">💬</span>'; document.getElementById('visitors').appendChild(d); document.getElementById('cn').value=''; document.getElementById('cp').value=''; alert('Added: '+n+' ✅'); }
+function chat(){ var m=document.getElementById('msg').value; if(!m) return; var d=document.createElement('div'); d.style.cssText='background:#C8E6C9;padding:9px;border-radius:12px;margin:6px 0 6px auto;text-align:right'; d.innerText='You: '+m; document.getElementById('myMsgs').appendChild(d); document.getElementById('msg').value=''; }
+function add(){ var n=document.getElementById('pn').value; var p=document.getElementById('pp').value; var sn=document.getElementById('sn').value||"You"; var sp=document.getElementById('sp').value||""; if(!n||!p){alert('Add Name + Price');return;} P.unshift({n:n,p:p,d:document.getElementById('pd').value,i:"https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600",sn:sn,sp:sp,si:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"}); show(); alert('Posted! ✅'); }
+show();
+</script></body></html>
