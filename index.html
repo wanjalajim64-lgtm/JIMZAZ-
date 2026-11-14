@@ -1,0 +1,94 @@
+<!DOCTYPE html><html><head><title>JIMZAZ</title><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{margin:0;font-family:Arial;background:#E1F5FE;padding:10px}.a{max-width:480px;margin:auto;background:#fff;border-radius:20px;overflow:hidden}.b{background:#29B6F6;color:#fff;text-align:center;padding:20px;border-bottom:4px solid #00C853}.b h1{margin:0;font-size:32px}.b h1 span{color:#00E676}input{width:100%;padding:13px;margin:7px 0;border:1px solid #ddd;border-radius:10px;box-sizing:border-box}.btn{background:#29B6F6;color:#fff;border:0;padding:14px;width:100%;border-radius:10px;font-size:17px;font-weight:bold;display:block;text-align:center;text-decoration:none;box-sizing:border-box}.btn2{background:#fff;color:#0288D1;border:2px solid #29B6F6;padding:12px;width:100%;border-radius:10px;margin-top:8px;font-weight:bold;display:block;text-align:center;text-decoration:none;box-sizing:border-box}.btnG{background:#00C853;color:#fff;border:0;padding:13px;width:100%;border-radius:10px;font-weight:bold}.p{padding:15px}.nav{display:flex;background:#29B6F6}.nav a{flex:1;color:#fff;text-align:center;padding:12px 2px;text-decoration:none;font-size:13px;font-weight:bold;border-right:1px solid #fff}.card{margin:10px;border-radius:12px;overflow:hidden;box-shadow:0 2px 6px #ccc}.card img{width:100%;height:160px;object-fit:cover}.card div{padding:10px}.ad{background:#00C853;color:#fff;padding:10px;margin:10px;border-radius:14px;text-align:center;font-weight:bold}.ct{display:flex;align-items:center;padding:12px;border-bottom:1px solid #eee;text-decoration:none;color:#000}.ct img{width:50px;height:50px;border-radius:50%;object-fit:cover;margin-right:10px;border:2px solid #00C853}.seller{display:flex;align-items:center;gap:8px;background:#E1F5FE;padding:8px;border-radius:10px;margin:8px 0}.seller img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid #00C853}.box{background:#E1F5FE;border:2px dashed #29B6F6;border-radius:12px;padding:12px;margin:10px}video{width:100%;border-radius:12px;background:#000}.mbBox{background:#FFEB3B;color:#000;padding:10px;border-radius:10px;text-align:center;font-weight:bold;margin:10px}
+.page{display:none}.page:target{display:block}.page:target ~ #login{display:none}#login{display:block}
+</style></head>
+<body><div class="a">
+<div class="b"><h1>JIM<span>ZAZ</span></h1><p>Chat • Market • Watch Video = Earn MBs | Mumias</p></div>
+<div style="background:#00C853;color:#fff;text-align:center;padding:8px;font-weight:bold">WATCH VIDEO AD = EARN MBs 💰</div>
+
+<!-- CONTACTS -->
+<div id="contacts" class="page">
+<div style="background:#0288D1;color:#fff;text-align:center;padding:10px">👤 JIMZAZ • <span id="mbTop">0 MBs</span> • <a href="#login" style="color:#fff">Logout</a></div>
+<div class="nav"><a href="#contacts">CONTACTS</a><a href="#market">MARKET</a><a href="#sell">SELL</a><a href="#account">ACCOUNT</a></div>
+
+<!-- VIDEO AD -->
+<div class="ad">🎥 VIDEO AD - Watch Full = Earn 20 MBs!
+<video id="vid1" controls playsinline poster="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600"><source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">Your phone does not support video.</video>
+<div id="vidMsg1" style="background:#fff;color:#0288D1;padding:8px;border-radius:8px;margin-top:8px">▶️ Tap Play - Watch to the END to earn MBs</div>
+<div style="display:flex;gap:6px;margin-top:8px"><div style="flex:1;background:#fff;color:#000;padding:8px;border-radius:8px">👀 Views: <span id="views1">0</span></div><div style="flex:1;background:#FFEB3B;color:#000;padding:8px;border-radius:8px">💰 Your MBs: <span id="mbs1">0</span> MB</div></div>
+<a id="claim1" class="btn2" style="display:none" href="https://wa.me/254116255989?text=Hi%20Jim!%20I%20watched%20your%20JIMZAZ%20video%20ad%20fully.%20Please%20send%20me%20my%2020%20MBs">🎁 CLAIM MY 20 MBs - Tap Here</a>
+</div>
+
+<div class="box"><h3 style="margin:0;color:#0288D1">➕ Add New Contact</h3><input id="cn" placeholder="Name e.g. Mama Mboga"><input id="cp" placeholder="Number e.g. 0712345678"><button class="btnG" onclick="addContact()">+ Add Contact ✅</button></div>
+<div class="p"><b>👀 People Who Pressed Your Link</b></div>
+<div id="visitors"></div>
+<div class="p"><b>💬 Sellers</b></div>
+<a class="ct" href="#chat"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"><div><b>Mary Achieng - Maize</b><br><span>📞 0722123456</span></div><span style="margin-left:auto">💬</span></a>
+<a class="ct" href="#chat"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"><div><b>Kevin Barasa - Phone</b><br><span>📞 0711223344</span></div><span style="margin-left:auto">💬</span></a>
+<div class="p"><a class="btn" href="#market">Go to MARKET ➜</a></div>
+</div>
+
+<!-- MARKET -->
+<div id="market" class="page">
+<div style="background:#0288D1;color:#fff;text-align:center;padding:10px">🛍️ MARKET • <span class="mbTop2">0 MBs</span></div>
+<div class="nav"><a href="#contacts">CONTACTS</a><a href="#market">MARKET</a><a href="#sell">SELL</a><a href="#account">ACCOUNT</a></div>
+<div class="ad">🎥 VIDEO AD - Watch = Earn MBs
+<video id="vid2" controls playsinline poster="https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=600"><source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4"></video>
+<div id="vidMsg2" style="background:#fff;color:#0288D1;padding:8px;border-radius:8px;margin-top:8px">▶️ Tap Play - Watch to END = 20 MBs</div>
+<div style="background:#FFEB3B;color:#000;padding:8px;border-radius:8px;margin-top:6px">💰 Your MBs: <span id="mbs2">0</span> MB • 👀 Views: <span id="views2">0</span></div>
+</div>
+<div id="pro"></div>
+<div class="p"><a class="btn" href="#contacts">← Back to CONTACTS</a></div>
+</div>
+
+<!-- SELL -->
+<div id="sell" class="page">
+<div style="background:#0288D1;color:#fff;text-align:center;padding:10px">📸 SELL • Your Account Shows</div>
+<div class="nav"><a href="#contacts">CONTACTS</a><a href="#market">MARKET</a><a href="#sell">SELL</a><a href="#account">ACCOUNT</a></div>
+<div class="ad">🎥 YOUR VIDEO AD HERE<br><span style="font-size:12px">Sellers can pay you to put their video here</span>
+<video controls playsinline poster="https://images.unsplash.com/photo-1445205170230-053b83016050?w=600"><source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4"></video></div>
+<div class="p"><h3>Sell Product + Video</h3><input id="pn" placeholder="Product Name"><input id="pp" placeholder="Price" type="number"><input id="pd" placeholder="Describe"><input id="sn" placeholder="Your Seller Name"><input id="sp" placeholder="Your Seller Phone"><input id="sv" placeholder="Paste Video Link (YouTube / TikTok / MP4)"><button class="btn" onclick="add()">Post With Video ✅</button><p style="font-size:12px">Your video ad will show in MARKET. When people watch it, they WhatsApp you.</p><a class="btn2" href="#market">See My Product in MARKET ➜</a></div>
+</div>
+
+<!-- ACCOUNT -->
+<div id="account" class="page">
+<div style="background:#0288D1;color:#fff;text-align:center;padding:10px">👤 MY ACCOUNT • MBs Wallet</div>
+<div class="nav"><a href="#contacts">CONTACTS</a><a href="#market">MARKET</a><a href="#sell">SELL</a><a href="#account">ACCOUNT</a></div>
+<div class="p"><div class="mbBox">💰 YOUR MBs WALLET<br><span style="font-size:32px" id="mbsBig">0</span> MBs<br><span style="font-size:12px">Watch video ads to earn more</span></div>
+<div class="seller"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"><div><b id="myName">Jim Wanjala</b><br>📞 <span id="myPhone">0116255989</span><br>👀 Total Video Views: <span id="viewsBig">0</span></div></div>
+<a class="btn" id="claimBig" href="https://wa.me/254116255989?text=Hi%20Jim!%20I%20watched%20video%20ad%20on%20JIMZAZ.%20Send%20my%20MBs">🎁 CLAIM MY MBs - WhatsApp Jim</a><br><br>
+<a class="btn2" href="https://wa.me/?text=Join%20JIMZAZ%20-%20Watch%20Video%20%3D%20Earn%20MBs">📤 Share My Link - Invite Friends to Watch</a><br><br>
+<a class="btn2" href="#login">Logout</a></div>
+</div>
+
+<!-- CHAT -->
+<div id="chat" class="page">
+<div style="background:#29B6F6;color:#fff;padding:12px;display:flex;gap:10px;align-items:center"><a href="#contacts" style="background:#00C853;color:#fff;padding:6px 10px;border-radius:8px;text-decoration:none;font-weight:bold">← Back</a><b>Seller Chat</b></div>
+<div class="nav"><a href="#contacts">CONTACTS</a><a href="#market">MARKET</a><a href="#sell">SELL</a><a href="#account">ACCOUNT</a></div>
+<div class="p" style="background:#E1F5FE;min-height:180px"><div style="background:#fff;padding:9px;border-radius:12px;margin:6px 0">Mary: Hi! Maize KSh 2500!</div><div style="background:#C8E6C9;padding:9px;border-radius:12px;margin:6px 0 6px auto;text-align:right">You: I want 1 bag</div><div id="myMsgs"></div></div>
+<div class="p"><input id="msg" placeholder="Type message..."><button class="btn" onclick="chat()">Send ➤</button><br><br><a class="btn2" href="https://wa.me/254116255989">Call / WhatsApp Seller</a></div>
+</div>
+
+<div id="login"><div class="p"><h2 style="color:#0288D1;text-align:center">Create Your Account</h2><p style="text-align:center;font-size:13px;color:#888">Watch Video Ad = Earn MBs!</p>
+<input id="n" placeholder="Your Full Name"><input id="ph" placeholder="Your Phone e.g. 0712345678"><input id="e" placeholder="Email"><input id="pw" type="password" placeholder="Password">
+<a class="btn" href="#contacts" onclick="go()">CREATE ACCOUNT ➜ NEXT</a>
+<a class="btn2" href="#contacts">Continue as Guest</a></div></div>
+<div style="background:#0288D1;color:#fff;text-align:center;padding:12px;font-size:12px"><b style="color:#00E676">JIMZAZ</b> © 2026 Mumias • Watch Video = Earn MBs</div>
+</div>
+<script>
+var MB=0, VIEWS=0;
+var P=[
+{n:"Maize - Mumias",p:2500,d:"Fresh 1 Bag",i:"https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=600",sn:"Mary Achieng",sp:"0722123456",si:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"},
+{n:"Samsung Phone",p:8500,d:"Clean, charger",i:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600",sn:"Kevin Barasa",sp:"0711223344",si:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"},
+{n:"School Shoes",p:1200,d:"Strong all sizes",i:"https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600",sn:"Faith Nekesa",sp:"0733445566",si:"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200"}
+];
+function updateMB(){ try{ document.getElementById('mbs1').innerText=MB; document.getElementById('mbs2').innerText=MB; document.getElementById('mbsBig').innerText=MB; document.getElementById('mbTop').innerText=MB+' MBs'; document.getElementById('views1').innerText=VIEWS; document.getElementById('views2').innerText=VIEWS; document.getElementById('viewsBig').innerText=VIEWS; }catch(e){} }
+function videoDone(id){ MB+=20; VIEWS+=1; updateMB(); document.getElementById('vidMsg'+id).innerText='🎉 YOU EARNED 20 MBs! Total: '+MB+' MBs ✅'; document.getElementById('vidMsg'+id).style.background='#FFEB3B'; document.getElementById('claim1').style.display='block'; alert('🎉 You watched full video! You earned 20 MBs! Total: '+MB+' MBs. Tap CLAIM MY MBs to get them from Jim ✅'); }
+try{ document.getElementById('vid1').addEventListener('ended',function(){videoDone(1)}); document.getElementById('vid1').addEventListener('play',function(){document.getElementById('vidMsg1').innerText='⏳ Watching... Keep watching to the END to earn MBs';}); document.getElementById('vid2').addEventListener('ended',function(){videoDone(2)}); }catch(e){}
+function go(){ try{ var n=document.getElementById('n').value; var ph=document.getElementById('ph').value; if(n) document.getElementById('myName').innerText=n; if(ph) document.getElementById('myPhone').innerText=ph; }catch(e){} show(); }
+function show(){ var h=""; for(var i=0;i<P.length;i++){ h+='<div class="card"><img src="'+P[i].i+'"><div><b>'+P[i].n+'</b><p>'+P[i].d+'</p><b style="color:#0288D1">KSh '+P[i].p+'</b><div class="seller"><img src="'+P[i].si+'"><div><b>👤 Seller: '+P[i].sn+'</b><br><span>📞 '+P[i].sp+'</span></div></div><a class="btn" href="#chat">Chat '+P[i].sn+' 💬</a><br><a class="btn2" href="https://wa.me/254'+P[i].sp.slice(1)+'">Call / WhatsApp '+P[i].sn+'</a></div></div>'; } document.getElementById('pro').innerHTML=h; }
+function addContact(){ var n=document.getElementById('cn').value; var p=document.getElementById('cp').value; if(!n||!p){alert('Add Name + Number');return;} var d=document.createElement('a'); d.className='ct'; d.href='#chat'; d.innerHTML='<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"><div><b>'+n+'</b><br><span>📞 '+p+'</span></div><span style="margin-left:auto">💬</span>'; document.getElementById('visitors').appendChild(d); document.getElementById('cn').value=''; document.getElementById('cp').value=''; alert('Added: '+n+' ✅'); }
+function chat(){ var m=document.getElementById('msg').value; if(!m) return; var d=document.createElement('div'); d.style.cssText='background:#C8E6C9;padding:9px;border-radius:12px;margin:6px 0 6px auto;text-align:right'; d.innerText='You: '+m; document.getElementById('myMsgs').appendChild(d); document.getElementById('msg').value=''; }
+function add(){ var n=document.getElementById('pn').value; var p=document.getElementById('pp').value; var sn=document.getElementById('sn').value||"You"; var sp=document.getElementById('sp').value||""; if(!n||!p){alert('Add Name + Price');return;} P.unshift({n:n,p:p,d:document.getElementById('pd').value,i:"https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600",sn:sn,sp:sp,si:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"}); show(); alert('Posted! Your video ad will show in MARKET ✅'); }
+show(); updateMB();
+</script></body></html>
