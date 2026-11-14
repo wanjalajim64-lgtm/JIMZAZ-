@@ -1,21 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>JIMZAZ</title>
+<title>JIMZAZ - Chat, Marketplace & Selling</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body{background:#cc0000;color:white;text-align:center;font-family:Arial;padding:40px}
-h1{font-size:50px}
-p{font-size:20px}
-a{color:yellow;font-size:22px;font-weight:bold}
+body{margin:0;font-family:Arial;background:#f2f2f2}
+header{background:#cc0000;color:white;padding:20px;text-align:center}
+header h1{margin:0;font-size:38px}
+header p{margin:5px}
+nav{display:flex;background:#222}
+nav button{flex:1;padding:14px;border:0;background:#222;color:white;font-size:16px}
+nav button.active{background:#cc0000}
+section{display:none;padding:15px}
+section.active{display:block}
+.card{background:white;padding:15px;border-radius:10px;margin-bottom:12px;box-shadow:0 2px 5px #ccc}
+input,textarea,select{width:100%;padding:12px;margin:6px 0;border:1px solid #ccc;border-radius:8px;box-sizing:border-box}
+.btn{background:#cc0000;color:white;border:0;padding:13px;width:100%;border-radius:8px;font-size:17px;font-weight:bold}
+.call{text-align:center;background:yellow;padding:12px;font-weight:bold;font-size:20px}
+.call a{color:black;text-decoration:none}
+.price{color:#cc0000;font-weight:bold;font-size:18px}
 </style>
 </head>
 <body>
+
+<header>
 <h1>WELCOME TO JIMZAZ</h1>
-<p>Best Quality. Best Price. Mumias, Kenya.</p>
-<p>JIMZAZ - We Deliver!</p>
-<p>Visit us in Mumias Town</p>
-<p>Call Us:</p>
-<a href="tel:0116255989">0116255989</a>
+<p>Chat Forum • Marketplace • Selling | Mumias, Kenya</p>
+</header>
+
+<div class="call">📞 Call Us: <a href="tel:0116255989">0116255989</a></div>
+
+<nav>
+<button onclick="show('home')" id="b-home" class="active">Home</button>
+<button onclick="show('market')" id="b-market">Marketplace</button>
+<button onclick="show('chat')" id="b-chat">Chat Forum</button>
+<button onclick="show('sell')" id="b-sell">Sell</button>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="active">
+<div class="card"><h2>🔥 Welcome to JIMZAZ</h2><p>Best Quality. Best Price. In Mumias Town.</p><p>Buy, Sell and Chat with people around you.</p><button class="btn" onclick="show('market')">Shop Now</button></div>
+<div class="card"><h3>How it works</h3><p>1. Go to Marketplace to buy<br>2. Go to Sell to post your product<br>3. Go to Chat Forum to talk to buyers</p></div>
+</section>
+
+<!-- MARKETPLACE -->
+<section id="market">
+<h2>🛒 Marketplace</h2>
+<div id="products"></div>
+</section>
+
+<!-- CHAT FORUM -->
+<section id="chat">
+<h2>💬 JIMZAZ Chat Forum</h2>
+<div class="card"><input id="chatName" placeholder="Your Name"><textarea id="chatMsg" placeholder="Type your message..."></textarea><button class="btn" onclick="sendChat()">Send Message</button></div>
+<div id="chats"></div>
+</section>
+
+<!-- SELL -->
+<section id="sell">
+<h2>💰 Sell Your Product</h2>
+<div class="card">
+<input id="pName" placeholder="Product Name e.g. Shoes">
+<input id="pPrice" placeholder="Price e.g. 1500" type="number">
+<input id="pPhone" placeholder="Your Phone e.g. 0116255989">
+<textarea id="pDesc" placeholder="Describe your product..."></textarea>
+<button class="btn" onclick="addProduct()">Post For Sale</button>
+</div>
+<p>After posting, it will appear in Marketplace!</p>
+</section>
+
+<script>
+function show(id){
+document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+document.getElementById('b-'+id).classList.add('active');
+}
+let products = JSON.parse(localStorage.getItem('jimzaz_products')||'[]');
+if(products.length==0){
+products=[
+{name:"Fresh Maize - 1 Bag",price:2500,phone:"0116255989",desc:"Fresh from Mumias farm, ready delivery"},
+{name:"Second Hand Phone - Samsung",price:8500,phone:"0116255989",desc:"Clean, working well, with charger"},
+{name:"School Shoes",price:1200,phone:"0116255989",desc:"Strong shoes, all sizes available"}
+];
+}
+let chats = JSON.parse(localStorage.getItem('jimzaz_chats')||'[]');
+if(chats.length==0){chats=[{name:"JIMZAZ Admin",msg:"Welcome to JIMZAZ Chat Forum! Ask about any product here."}];}
+function renderProducts(){
+let h="";
+products.forEach(p=>{
+h+=`<div class="card"><h3>${p.name}</h3><p>${p.desc}</p><p class="price">KSh ${p.price}</p><p>📞 <a href="tel:${p.phone}">${p.phone}</a></p><button class="btn" onclick="show('chat')">Chat About This</button></div>`;
+});
+document.getElementById('products').innerHTML=h;
+}
+function renderChats(){
+let h="";
+chats.slice().reverse().forEach(c=>{
+h+=`<div class="card"><b>${c.name}</b><p>${c.msg}</p></div>`;
+});
+document.getElementById('chats').innerHTML=h;
+}
+function addProduct(){
+let n=document.getElementById('pName').value;
+let pr=document.getElementById('pPrice').value;
+let ph=document.getElementById('pPhone').value;
+let d=document.getElementById('pDesc').value;
+if(!n||!pr){alert("Please add Name and Price");return;}
+products.unshift({name:n,price:pr,phone:ph,desc:d});
+localStorage.setItem('jimzaz_products',JSON.stringify(products));
+renderProducts(); show('market'); alert("Posted! Now in Marketplace");
+}
+function sendChat(){
+let n=document.getElementById('chatName').value||"Guest";
+let m=document.getElementById('chatMsg').value;
+if(!m){alert("Type a message");return;}
+chats.push({name:n,msg:m});
+localStorage.setItem('jimzaz_chats',JSON.stringify(chats));
+document.getElementById('chatMsg').value="";
+renderChats();
+}
+renderProducts(); renderChats();
+</script>
 </body>
-</html>
+  </html>
