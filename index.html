@@ -5,93 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:#ece5dd}
-.top{background:#075E54;color:white;padding:14px;display:flex;justify-content:space-between;align-items:center}
-.top h1{margin:0;font-size:22px}
-.tabs{display:flex;background:#075E54}
-.tabs button{flex:1;background:#075E54;color:#c8e6c9;border:0;padding:13px;font-weight:bold}
-.tabs button.active{color:white;border-bottom:3px solid white}
-.page{display:none}
-.page.active{display:block}
-.login{max-width:400px;margin:20px auto;background:white;padding:20px;border-radius:15px;text-align:center}
-.login img{width:90px;height:90px;border-radius:50%;object-fit:cover}
-.login h1{color:#075E54;margin:5px}
-input{width:100%;padding:13px;margin:7px 0;border:1px solid #ddd;border-radius:10px}
-.btn{background:#00a884;color:white;border:0;padding:13px;width:100%;border-radius:10px;font-size:16px;font-weight:bold}
-.btn2{background:#075E54;color:white;border:0;padding:10px;width:100%;border-radius:10px;margin-top:8px}
-.ad{background:#ffcc00;padding:10px;margin:10px;border-radius:10px;text-align:center;font-weight:bold}
-.ad small{display:block;font-weight:normal}
-.ad2{background:#ff5722;color:white;padding:12px;margin:10px;border-radius:10px;text-align:center}
-.item{display:flex;background:white;padding:10px;border-bottom:1px solid #eee;align-items:center}
-.item img{width:55px;height:55px;border-radius:50%;object-fit:cover;margin-right:12px}
-.card{background:white;margin:10px;border-radius:12px;overflow:hidden}
-.card img{width:100%;height:180px;object-fit:cover}
-.card div{padding:12px}
-.chatbox{padding:10px;height:320px;overflow-y:auto;background:#efeae2}
-.bubble{max-width:75%;padding:9px 12px;border-radius:10px;margin:6px 0}
-.left{background:white;float:left;clear:both}
-.right{background:#d9fdd3;float:right;clear:both}
-.inputbar{display:flex;background:white;padding:8px;position:fixed;bottom:0;left:0;right:0}
-.inputbar input{flex:1;padding:12px;border-radius:20px;border:1px solid #ddd}
-.send{background:#00a884;color:white;border:0;width:45px;height:45px;border-radius:50%;margin-left:8px;font-size:20px}
-.callbar{background:#128C7E;color:white;text-align:center;padding:10px}
-.callbar a{color:white;font-weight:bold;text-decoration:none}
-.price{color:#00a884;font-weight:bold}
-</style>
-</head>
-<body>
-
-<!-- LOGIN / SIGN IN -->
-<div id="loginPage">
-<div class="login">
-<img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=300">
-<h1>JIMZAZ</h1><p>Chat • Marketplace • Selling<br>Mumias, Kenya</p>
-<h3 id="loginTitle">Create Account / Sign In</h3>
-<input id="uName" placeholder="Full Name e.g. Jim Wanjala">
-<input id="uPhone" placeholder="Phone Number e.g. 0116255989">
-<input id="uEmail" placeholder="Email e.g. jim@gmail.com" type="email">
-<input id="uPass" placeholder="Password" type="password">
-<button class="btn" onclick="doLogin()">Sign In / Create Account ✅</button>
-<button class="btn2" onclick="guestLogin()">Continue as Guest 👤</button>
-<p style="font-size:12px;color:#888">Your details are saved on this phone only. Safe & Private.</p>
-<p>📞 Need help? Call <a href="tel:0116255989">0116255989</a></p>
-</div>
-</div>
-
-<!-- MAIN APP - HIDDEN UNTIL LOGIN -->
-<div id="mainApp" style="display:none">
-<div class="top"><div><h1>JIMZAZ</h1><span id="welcomeUser" style="font-size:12px;color:#d9fdd3">Hi!</span></div><button onclick="logout()" style="background:white;border:0;padding:7px 12px;border-radius:20px;font-weight:bold">Logout</button></div>
-<div class="callbar">📞 Call JIMZAZ: <a href="tel:0116255989">0116255989</a></div>
-
-<!-- ADS -->
-<div class="ad">🔥 AD: JIMZAZ BIG SALE! 🔥<small>Maize, Shoes, Phones - Up to 50% OFF This Week in Mumias!</small><button onclick="show('market')" style="background:black;color:white;border:0;padding:8px 15px;border-radius:20px;margin-top:5px">Shop Sale Now</button></div>
-<div class="ad2">📢 ADVERTISE HERE - Only KSh 500 / Week! Call 0116255989 to place your Ad!</div>
-
-<div class="tabs">
-<button onclick="show('chats')" id="t-chats" class="active">CHATS</button>
-<button onclick="show('market')" id="t-market">MARKET</button>
-<button onclick="show('sell')" id="t-sell">SELL + ADS</button>
-</div>
-
-<div id="chats" class="page active">
-<div id="chatList"></div>
-<div style="padding:10px"><b>💬 JIMZAZ Forum Chat</b></div>
-<div class="chatbox" id="chatBox"></div>
-<div class="inputbar"><input id="chatMsg" placeholder="Message..."><button class="send" onclick="sendChat()">➤</button></div>
-</div>
-
-<div id="market" class="page">
-<div style="background:white;margin:10px;padding:10px;border-radius:20px;color:#888">🔍 Search Marketplace...</div>
-<div class="ad">⭐ SPONSORED: Best Shop in Mumias - JIMZAZ Store - Visit Today!</div>
-<div id="products"></div>
-</div>
-
-<div id="sell" class="page" style="padding:10px">
-<div class="card"><div><h2>📸 Sell Your Product</h2>
-<input id="pName" placeholder="Product Name">
-<input id="pPrice" placeholder="Price e.g. 1500" type="number">
-<input id="pImg" placeholder="Picture Link (optional)">
-<textarea id="pDesc" placeholder="Describe..."></textarea>
-<button class="btn" onclick="addProduct()">Post To Market ✅</button>
-</div></div>
-<div class="card"><div><h2>📢 Place Your Ad</h2>
+body{margin:0;font-family:Arial;background:linear-gradient(180deg,#2D004D,#6A0DAD,#9D4EDD);min-height:100vh;padding:10px}
+.app{max-width:480px;margin:0 auto;background:#f8f3ff;border-radius:25px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.5);min-height:92vh}
+.brand{background:linear-gradient(135deg,#2D004D,#6A0DAD,#9D4EDD);color:white;text-align:center;padding:22px 15px 15px;border-bottom:4px solid #FFD700}
+.brand img{width:75px;height:75px;border-radius:50%;border:3px solid #FFD700;object-fit:cover}
+.brand h1{margin:5px 0 0;font-size:32px;letter-spacing:3px}
+.brand h1 span{color:#FFD700}
+.brand p{margin:2px;color:#E9D5FF;font-size:13px}
+.goldbar{background:linear-gradient(90deg,#FFD700,#FFC107,#FFD700);color:#2D004D;text-align:center;padding:9px;font-weight:bold;font-size:13px}
+.top{background:#6A0DAD;color:white;padding:13px;display:flex;justify-content:space-between;align-items:center}
+.tabs{display:flex;background:#6A0DAD}
+.tabs button{flex:1;background
